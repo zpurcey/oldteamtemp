@@ -28,8 +28,9 @@ class TemperatureResponse(models.Model):
     responder = models.ForeignKey(User)
     score = models.IntegerField()
     word = models.CharField(max_length=32)
+    response_date = models.DateField(null=True)
 
     def __unicode__(self):
         return u"{}: {} {} {} {}".format(self.id, self.request.id, 
                                          self.responder.id,
-                                         self.score, self.word)
+                                         self.score, self.word, self.response_date)

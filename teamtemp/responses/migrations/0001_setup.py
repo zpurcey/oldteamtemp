@@ -32,6 +32,7 @@ class Migration(SchemaMigration):
             ('responder_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['responses.User'])),
             ('score', self.gf('django.db.models.fields.IntegerField')()),
             ('word', self.gf('django.db.models.fields.CharField')(max_length=32)),
+            ('response_date', self.gf('django.db.models.fields.DateField')()),
         ))
         db.send_create_signal(u'responses', ['TemperatureResponse'])
 
@@ -62,7 +63,8 @@ class Migration(SchemaMigration):
             'request_id': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['responses.TeamTemperature']"}),
             'responder_id': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['responses.User']"}),
             'score': ('django.db.models.fields.IntegerField', [], {}),
-            'word': ('django.db.models.fields.CharField', [], {'max_length': '32'})
+            'word': ('django.db.models.fields.CharField', [], {'max_length': '32'}),
+            'response_date': ('django.db.models.fields.DateField', [], {})
         },
         u'responses.user': {
             'Meta': {'object_name': 'User'},
