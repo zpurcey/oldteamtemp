@@ -16,6 +16,10 @@ class ErrorBox(ErrorList):
     def as_lines(self):
         return "<br/>".join(e for e in self)
 
+class CreateSurveyForm(forms.Form):
+    error_css_class='error box'
+    password = forms.CharField(widget=forms.PasswordInput(), max_length=256)
+
 class SurveyResponseForm(forms.ModelForm):
     class Meta:
         model = TemperatureResponse
@@ -37,3 +41,7 @@ class SurveyResponseForm(forms.ModelForm):
                     '{matches}'.format(word=escape(word), matches=list({str(x) for x in matches}))
             raise forms.ValidationError(error)
         return word
+
+class ResultsPasswordForm(forms.Form):
+    error_css_class='error box'
+    password = forms.CharField(widget=forms.PasswordInput(), max_length=256)
